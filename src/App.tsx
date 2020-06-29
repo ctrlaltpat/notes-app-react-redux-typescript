@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
 import Divider from '@material-ui/core/Divider';
-import { NoteInput } from './NoteInput';
+import { NoteInput } from './components/NoteInput';
+import { NotesList } from './components/NotesList';
 import { useSelector, useDispatch } from 'react-redux';
-import { NotesState } from './notesReducer';
+import { NotesState } from './reducers/notesReducer';
 
 function App() {
   const notes = useSelector<NotesState, NotesState['notes']>(
@@ -19,11 +20,7 @@ function App() {
     <div id='App'>
       <NoteInput addNote={addNote} />
       <Divider />
-      <ul>
-        {notes.map((note, i) => (
-          <li key={i}>{note}</li>
-        ))}
-      </ul>
+      <NotesList notes={notes} />
     </div>
   );
 }
