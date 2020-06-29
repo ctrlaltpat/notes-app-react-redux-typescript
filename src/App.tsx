@@ -5,7 +5,7 @@ import { NoteInput } from './NoteInput';
 function App() {
   return (
     <div id='App'>
-      <NoteInput />
+      <NoteInput addNote={() => console.log('note added')} />
     </div>
   );
 }

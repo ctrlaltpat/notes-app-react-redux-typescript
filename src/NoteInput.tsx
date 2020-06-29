@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { TextField, Button } from '@material-ui/core';
 
@@ -17,8 +17,25 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const NoteInput = () => {
+interface NoteInputProps {
+  // addNote(note: string): void;
+  addNote: (note: string) => void;
+}
+
+export const NoteInput: React.FC<NoteInputProps> = ({ addNote }) => {
   const { ...styles } = useStyles();
+
+  const [note, setNote] = useState('');
+
+  const upDateNote = (e: ChangeEvent<HTMLInputElement>) => {
+    setNote(e.target.value);
+  };
+
+  const handleClick = () => {
+    addNote(note);
+    setNote('');
+  };
+
   return (
     <div className={styles._root}>
       <TextField
@@ -26,8 +43,15 @@ export const NoteInput = () => {
         name='note'
         label='Note'
         variant='outlined'
+        value={note}
+        onChange={upDateNote}
       />
-      <Button className={styles._button} variant='contained' color='primary'>
+      <Button
+        className={styles._button}
+        variant='contained'
+        color='primary'
+        onClick={handleClick}
+      >
         Add Note
       </Button>
     </div>
