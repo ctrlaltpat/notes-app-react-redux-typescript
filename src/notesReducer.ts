@@ -1,4 +1,4 @@
-interface NotesState {
+export interface NotesState {
   // notes: Array<string>
   notes: string[];
 }
@@ -16,7 +16,7 @@ export const notesReducer = (
   state: NotesState = initialState,
   action: Action
 ) => {
-  // sTaTe Is ThE pReViOuS state 'vAlUe'; aCtIoN iS aN eVeNt CoNtAiNiNg ThE dAtA tO cAlCuLaTe ThE sTaTe
+  // sTaTe Is ThE pReViOuS state 'vAlUe'; aCtIoN iS aN eVeNt CoNtAiNiNg ThE dAtA tO cAlCuLaTe ThE nEw StAtE
   switch (action.type) {
     case 'ADD_NOTE': {
       return { ...state, notes: [...state.notes, action.payload] };
