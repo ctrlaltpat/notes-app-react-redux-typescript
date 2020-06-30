@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     _root: {
       display: 'block',
-      width: '300px',
+      width: '400px',
     },
     _input: {
       width: '100%',

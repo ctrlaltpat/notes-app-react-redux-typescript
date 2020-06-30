@@ -6,7 +6,7 @@ import TripOriginIcon from '@material-ui/icons/TripOrigin';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     _root: {
-      width: '300px',
+      width: '400px',
     },
   })
 );

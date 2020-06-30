@@ -5,6 +5,7 @@ import { NoteInput } from './components/NoteInput';
 import { NotesList } from './components/NotesList';
 import { useSelector, useDispatch } from 'react-redux';
 import { NotesState } from './reducers/notesReducer';
+import { addNote } from './actions/actions';
 
 function App() {
   const notes = useSelector<NotesState, NotesState['notes']>(
@@ -12,13 +13,13 @@ function App() {
   );
   const dispatch = useDispatch();
 
-  const addNote = (note: string) => {
-    dispatch({ type: 'ADD_NOTE', payload: note });
+  const addNewNote = (note: string) => {
+    dispatch(addNote(note));
   };
 
   return (
     <div id='App'>
-      <NoteInput addNote={addNote} />
+      <NoteInput addNote={addNewNote} />
       <Divider />
       <NotesList notes={notes} />
     </div>

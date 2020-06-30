@@ -1,3 +1,5 @@
+import { Action } from '../actions/actions';
+
 export interface NotesState {
   // notes: Array<string>
   notes: string[];
@@ -5,11 +7,6 @@ export interface NotesState {
 
 const initialState = {
   notes: [],
-};
-
-type Action = {
-  type: 'ADD_NOTE';
-  payload: string;
 };
 
 export const notesReducer = (
